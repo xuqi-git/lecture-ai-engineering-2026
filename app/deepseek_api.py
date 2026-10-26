@@ -56,7 +56,9 @@ class DeepSeekClient:
     def generate_content(self, *, model, contents, config):
         data = self._request("/chat/completions", {
             "model": model,
-            "messages": [{"role": "user", "content": contents}],
+            "messages": ([{"role": "user", "content": contents}] if isinstance(contents, str) else
+                         [{"role": "assistant" if m["role"] == "model" else m["role"],
+                           "content": "".join(part["text"] for part in m["parts"])} for m in contents]),
             "max_tokens": config.max_output_tokens,
             "stream": False,
             # Both compared models use the same explicitly non-thinking mode.

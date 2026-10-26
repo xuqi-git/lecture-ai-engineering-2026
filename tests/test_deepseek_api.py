@@ -62,3 +62,13 @@ def test_completion_including_reasoning_is_not_double_counted():
     assert result.usage_metadata.thoughts_token_count == 20
     assert result.usage_metadata.total_token_count == 40
     assert result.candidates[0].finish_reason.value == "MAX_TOKENS"
+
+def test_history_converts_model_role_to_assistant():
+    calls=[]
+    def opener(request,timeout):
+        calls.append(json.loads(request.data))
+        return io.BytesIO(b'{"choices":[{"message":{"content":"ok"},"finish_reason":"stop"}],"usage":{}}')
+    client=DeepSeekClient("offline-placeholder",opener=opener)
+    history=[dict(role="user",parts=[dict(text="q1")]),dict(role="model",parts=[dict(text="a1")]),dict(role="user",parts=[dict(text="q2")])]
+    client.generate_content(model="a",contents=history,config=NS(max_output_tokens=100))
+    assert calls[0]["messages"]==[dict(role="user",content="q1"),dict(role="assistant",content="a1"),dict(role="user",content="q2")]
