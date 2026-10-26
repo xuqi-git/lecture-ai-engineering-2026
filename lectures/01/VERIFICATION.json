@@ -1,0 +1,21 @@
+{
+  "task_id": "AIE-DAY1-ADVANCED-20261026-R1",
+  "recorded_at": "2026-10-26T07:16:07.699623+00:00",
+  "baseline": "662cddd52724b330f3f4cd15123d1e55cb474874",
+  "python": "3.12.14",
+  "test_command": "uv run pytest -q",
+  "test_output": ".......................                                                  [100%]\n23 passed in 7.58s",
+  "cli_help_exit": 0,
+  "real_api_requests": 0,
+  "simulation_results_used_as_experiment": false,
+  "status": "offline_verified_waiting_for_api_configuration",
+  "source_sha256": {
+    "app/ask.py": "cce8b8dc871c4dfa8dc24cf134c395ef528ac232e7b61777aa6a21502f5c3474",
+    "app/benchmark.py": "e27983e21162adfc68bc4aa4ea9b0e7f9a69e6c9019738ed18caae96fa377cd9",
+    "scripts/setup_api_key.py": "e660814e80c589594eab65dfc33f096ec0676954d24377d1bc96987d88cbe909",
+    "tests/test_benchmark.py": "46c869a4851df76bd53c4529290d15c392e0058d2474b9d2043923fab161a760",
+    "tests/test_ask.py": "eae337d9b374f13b1df48c8821e75b702be1f2ea4ec56780e5ce6d7583632489",
+    "lectures/01/questions.json": "4d085082356366a4a640380de55555575fdc469e009a653ee2d3411b1881de38"
+  }
+}
+
