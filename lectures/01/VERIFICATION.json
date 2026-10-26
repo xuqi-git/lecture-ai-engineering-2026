@@ -1,14 +1,14 @@
 {
   "task_id": "AIE-DAY1-ADVANCED-20261026-R1",
-  "recorded_at": "2026-10-26T07:50:08.758374+00:00",
+  "recorded_at": "2026-10-26T08:03:45.127Z",
   "baseline": "662cddd52724b330f3f4cd15123d1e55cb474874",
   "python": "3.12.14",
   "test_command": "uv run pytest -q",
   "test_output": "..............................                                           [100%]\n30 passed in 8.22s",
   "cli_help_exit": 0,
-  "real_api_requests": 0,
+  "real_api_requests": 18,
   "simulation_results_used_as_experiment": false,
-  "status": "implementation_completed_offline_verified_advanced_not_measured",
+  "status": "implementation_offline_verified_advanced_measured",
   "source_sha256": {
     "app/ask.py": "a4d57b5477e5ba8542c7f1f6389d74fcf3016c2c478f197ea4cd6e58d9aa7733",
     "app/benchmark.py": "24a71a0a7795f6609edb83d91d84a57eacdec03e5c94e133ad0175ba7b979d66",
@@ -27,6 +27,18 @@
     "exit_code": 1,
     "message": "DEEPSEEK_API_KEY is missing. Set it locally; never paste it in chat or Git.\n"
   },
-  "generation_requests": 0,
-  "model_list_verified": true
+  "generation_requests": 18,
+  "model_list_verified": true,
+  "offline_verification_at": "2026-10-26T07:50:08.758374+00:00",
+  "real_experiment": {
+    "directory": "results/20261026T075803140900Z",
+    "completed": 18,
+    "errors": 0,
+    "rate_limited": 0,
+    "truncated": 0,
+    "submitted_level": "Implementation",
+    "submitted_snapshot_branch": "day1-submitted-implementation",
+    "submitted_snapshot_commit": "af01096683aa4993d74b1972e61219c1fe7b358c",
+    "note": "Additional Advanced report prepared after user confirmed their Implementation submission. No form edit or resubmission."
+  }
 }
