@@ -74,13 +74,14 @@ def test_empty_and_truncated_are_not_success(text, reason, expected):
 
 
 def test_error_redacted_recorded_and_no_hidden_retry(tmp_path):
-    secret = [REDACTED] + "x" * 35
+    secret = "AIza" + "x" * 35
     exc = RuntimeError("quota exhausted; key=" + secret)
     exc.code = 429
     client = Client([exc, response()])
     out = tmp_path / "run"
     rows = run_benchmark(client, models=["a"], questions=[QUESTION], repeats=3, seed=1,
-                         output=out, interval=0, max_output_tokens=100, secret=[REDACTED]    assert len(client.calls) == len(rows) == 1
+                         output=out, interval=0, max_output_tokens=100, secret=secret)
+    assert len(client.calls) == len(rows) == 1
     assert rows[0]["http_status"] == 429
     assert summarize(rows)[0]["rate_limited"] == 1
     for path in out.iterdir():

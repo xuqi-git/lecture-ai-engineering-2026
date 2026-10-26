@@ -23,9 +23,10 @@ from datetime import datetime, timezone
 from typing import Any
 
 from google import genai
-from google.genai import errors, types
+from google.genai import types
 
 from app.config import get_api_key
+from app.deepseek_api import DeepSeekClient
 
 TOKEN_FIELDS = (
     "prompt_token_count", "candidates_token_count", "thoughts_token_count",
@@ -202,7 +203,7 @@ def run_benchmark(client: Any, *, models: list[str], questions: list[dict[str, A
             previous_start = clock()
             record = measure_once(client, model=model, question=question, repeat=repeat,
                                   sequence=sequence, max_output_tokens=max_output_tokens,
-                                  secret=[REDACTED] clock=clock)
+                                  secret=secret, clock=clock)
             with log.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(record, ensure_ascii=False) + "\n")
                 handle.flush()
@@ -245,6 +246,7 @@ def provenance() -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--provider", choices=["deepseek", "gemini"], default="deepseek")
     parser.add_argument("--models", nargs="+")
     parser.add_argument("--questions", type=Path, default=Path("lectures/01/questions.json"))
     parser.add_argument("--repeats", type=int, default=3)
@@ -262,10 +264,17 @@ def main() -> None:
         build_schedule(args.models, questions, args.repeats, args.seed)
         if args.interval < 0 or args.max_output_tokens < 1:
             parser.error("Use a nonnegative interval and positive output limit.")
-    key = get_api_key()
-    with genai.Client(api_key=key, http_options=types.HttpOptions(
-        timeout=90000, retry_options=types.HttpRetryOptions(attempts=1),
-    )) as client:
+    if args.provider == "deepseek":
+        key = os.environ.get("DEEPSEEK_API_KEY")
+        if not key:
+            raise SystemExit("DEEPSEEK_API_KEY is missing. Set it locally; never paste it in chat or Git.")
+        client_context = DeepSeekClient(key)
+    else:
+        key = get_api_key()
+        client_context = genai.Client(api_key=key, http_options=types.HttpOptions(
+            timeout=90000, retry_options=types.HttpRetryOptions(attempts=1),
+        ))
+    with client_context as client:
         if args.list_models:
             for model in client.models.list():
                 actions = getattr(model, "supported_actions", None) or []
@@ -273,10 +282,13 @@ def main() -> None:
                     print(model.name)
             return
         output = args.output or Path("lectures/01/results") / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+        metadata = provenance()
+        metadata.update(provider=args.provider,
+                        thinking="disabled" if args.provider == "deepseek" else "provider default")
         records = run_benchmark(client, models=args.models, questions=questions,
                                 repeats=args.repeats, seed=args.seed, output=output,
                                 interval=args.interval, max_output_tokens=args.max_output_tokens,
-                                secret=[REDACTED] metadata=provenance())
+                                secret=key, metadata=metadata)
     print(f"Saved: {output}")
     if any(row["status"] != "ok" for row in records):
         raise SystemExit(1)
