@@ -1,0 +1,134 @@
+{
+  "config": {
+    "base_model": "Qwen/Qwen3.5-0.8B",
+    "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+    "seed": 42,
+    "num_train_epochs": 20,
+    "warmup_steps": 6,
+    "lr": 0.0002,
+    "lora_r": 16,
+    "lora_alpha": 32,
+    "max_seq_len": 512,
+    "max_new_tokens": 96,
+    "gen": {
+      "do_sample": false
+    }
+  },
+  "versions": {
+    "transformers": "5.22.1",
+    "peft": "0.21.1",
+    "trl": "1.14.2",
+    "torch": "2.11.0+cu128"
+  },
+  "method": "LoRA（量子化なし）",
+  "before": {
+    "label": "before",
+    "n": 21,
+    "format_rate": 0.09523809523809523,
+    "content_rate": 0.0,
+    "both_rate": 0.0,
+    "seconds": 13.7
+  },
+  "after": {
+    "label": "after",
+    "n": 21,
+    "format_rate": 1.0,
+    "content_rate": 0.9047619047619048,
+    "both_rate": 0.9047619047619048,
+    "seconds": 28.3
+  },
+  "regressed": [],
+  "knowledge": [
+    {
+      "質問": "この講座の最終課題の締切はいつですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"9 月 30 日 23:59\"}",
+      "学習後の分類": "asserted",
+      "学習後の出力": "{\"answer\": \"課題の提出期限は 9 月 30 日 23:59（日本時間）です。\", \"needs_review\": false}"
+    },
+    {
+      "質問": "担当教員の名前は何ですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"確認が必要\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "次回の講義のテーマは何ですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"次回の講義のテーマは「学習ポータル」の「課題」欄で提出する PDF 1 ファイルを提出します。\"}",
+      "学習後の分類": "needs_review",
+      "学習後の出力": "{\"answer\": \"この FAQ には記載がありません。運営に確認が必要です。\", \"needs_review\": true}"
+    },
+    {
+      "質問": "課題の提出期限はいつですか",
+      "FAQ にある": false,
+      "学習前の分類": "format_error",
+      "学習前の出力": "{\"answer\": \"9 月 30 日 23:59\"}",
+      "学習後の分類": "asserted",
+      "学習後の出力": "{\"answer\": \"課題の提出期限は 9 月 30 日 23:59（日本時間）です。\", \"needs_review\": false}"
+    }
+  ],
+  "executed_training_myself": true,
+  "train_seconds": 55.0,
+  "train_loss_avg": 0.42087940461933615,
+  "final_logged_loss": [
+    0.013922378420829773
+  ],
+  "log_history": [
+    {
+      "loss": 1.5654525756835938,
+      "grad_norm": 2.180342435836792,
+      "learning_rate": 0.00019618256431728194,
+      "entropy": 1.84028702378273,
+      "num_tokens": 17860.0,
+      "mean_token_accuracy": 0.6858807951211929,
+      "epoch": 5.0,
+      "step": 10
+    },
+    {
+      "loss": 0.08565664291381836,
+      "grad_norm": 0.3090874254703522,
+      "learning_rate": 0.00013612416661871533,
+      "entropy": 0.17507499046623706,
+      "num_tokens": 35720.0,
+      "mean_token_accuracy": 0.9846554309129715,
+      "epoch": 10.0,
+      "step": 20
+    },
+    {
+      "loss": 0.01848602145910263,
+      "grad_norm": 0.25248953700065613,
+      "learning_rate": 4.735678371226441e-05,
+      "entropy": 0.043340020999312404,
+      "num_tokens": 53580.0,
+      "mean_token_accuracy": 0.9959136962890625,
+      "epoch": 15.0,
+      "step": 30
+    },
+    {
+      "loss": 0.013922378420829773,
+      "grad_norm": 0.22179175913333893,
+      "learning_rate": 4.2658237049655323e-07,
+      "entropy": 0.03093124506995082,
+      "num_tokens": 71440.0,
+      "mean_token_accuracy": 0.9963105946779252,
+      "epoch": 20.0,
+      "step": 40
+    },
+    {
+      "train_runtime": 54.8178,
+      "train_samples_per_second": 5.108,
+      "train_steps_per_second": 0.73,
+      "total_flos": 221402196196608.0,
+      "train_loss": 0.42087940461933615,
+      "epoch": 20.0,
+      "step": 40
+    }
+  ],
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+  "peak_vram_gb": 4.77
+}
