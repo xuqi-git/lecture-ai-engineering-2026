@@ -1,0 +1,22 @@
+Downloading cryptography (3.7MiB)
+Downloading google-genai (1.2MiB)
+Downloading pydantic-core (1.9MiB)
+Downloading google-adk (5.1MiB)
+ Downloaded google-genai
+ Downloaded pydantic-core
+ Downloaded cryptography
+ Downloaded google-adk
+Installed 48 packages in 35ms
+Log setup complete: /var/folders/4k/g1k6fm3173gb2hjsl1vwhc1w0000gn/T/agents_log/agent.20261109_100251.log
+To access latest log: tail -F /var/folders/4k/g1k6fm3173gb2hjsl1vwhc1w0000gn/T/agents_log/agent.latest.log
+Running agent glossary_agent, type exit to exit.
+[user]: [glossary_agent]: AIE2026の宿題における「3レベル」とは、宿題の構成である以下の3段階のレベルのことです。
+
+1. **基礎**：講義内容の確認
+2. **実装**：自分でコードを書く
+3. **発展**：調査や試行
+
+どれか1つに取り組めばその回の宿題は完了となり、原則として採点は行われません。ご自身の理解度や目的に合わせて選んで取り組むことができます。
+
+（関係する回：第1回）
+[user]: 

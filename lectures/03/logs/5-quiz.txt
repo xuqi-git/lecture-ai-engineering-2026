@@ -1,0 +1,22 @@
+                 pydantic-ai v2.57.0 • Python 3.12.14
+      / \
+     /   \       agent: target • model: google:gemini-3.5-flash-lite • tools: 3 • capabilities: 0
+   /___.___\
+  /    |    \    observability: off — see every model and tool call live, with cost
+/      |      \    set it up free with Logfire and a GitHub login: https://pydantic.dev/ai-setup.md
+`---.._|_..---'    or use any OpenTelemetry backend: https://pydantic.dev/docs/ai/logfire/#otel
+
+                 goes away once observability is on — or PYDANTIC_AI_NO_BANNER=1
+[model] gemini-3.5-flash-lite
+第2回の内容から確認問題をお出しします！
+
+**【確認問題】**
+Q. 「QLoRA」とはどのような手法でしょうか？
+
+---
+第2回
+
+--- trace ---
+[tool call]   make_quiz({'lecture': 2})
+[tool return] make_quiz -> {"question": "「QLoRA」の意味は？", "answer": "ベースモデルの重みを4ビットなどに量子化してメモリを節約したうえで、LoRAで学習する手法。より大きなモデルを小さなGPUで扱える。本講座の第2回演習ではモデル…
+[usage] RunUsage(cost=Decimal('0.0004275'), details={'text_prompt_tokens': 1000}, input_text_tokens=1000, input_tokens=1000, output_tokens=51, requests=2, tool_calls=1)
