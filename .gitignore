@@ -12,3 +12,6 @@ learning_log/
 
 # macOS
 .DS_Store
+
+# 第3回 発展a: ADK のローカルセッション保存
+.adk/

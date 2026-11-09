@@ -1,0 +1,29 @@
+--- session 7171f7bf ---
+[tool call]   search_glossary({'query': '3レベル'})
+[usage] prompt=510 output=18 total=528
+[tool return] search_glossary -> {'result': '[{"term": "宿題の3レベル", "lecture": 1, "definition": "AIE2026の宿題の構成。「基礎（講義内容の確認）」「実装（自分でコードを…
+[text] AIE2026の宿題における「3レベル」とは、宿題の構成である以下の3段階のレベルのことです。
+
+1. **基礎**：講…
+[usage] prompt=633 output=112 total=745
+--- session 4d5538bb ---
+[tool call]   search_glossary({'query': 'LoRA'})
+[tool call]   search_glossary({'query': 'QLoRA'})
+[usage] prompt=499 output=37 total=536
+[tool return] search_glossary -> {'result': '[{"term": "LoRA", "lecture": 2, "definition": "事前学習済みの重みは固定したまま、重みの更新分を2つの小さな行列の積（低ランク行列…
+[tool return] search_glossary -> {'result': '[{"term": "QLoRA", "lecture": 2, "definition": "ベースモデルの重みを4ビットなどに量子化してメモリを節約したうえで、LoRAで学…
+[text] LoRAとQLoRAの違いは、ベースモデルの重みの扱い方（精度）にあります。
+
+* **LoRA**: 事前学習済みの重…
+[usage] prompt=1055 output=137 total=1192
+--- session f15137e4 ---
+[tool call]   make_quiz({'lecture': 2})
+[usage] prompt=501 output=14 total=515
+[tool return] make_quiz -> {'result': '{"question": "「ランク（LoRAのr）」の意味は？", "answer": "LoRAで使う低ランク行列の大きさを決めるハイパーパラメータ。大きいほど表現力が上が…
+[text] 第2回から確認問題を出題します！
+
+**【確認問題】**
+「ランク（LoRAのr）」の意味は？
+
+（第2回）…
+[usage] prompt=586 output=35 total=621
