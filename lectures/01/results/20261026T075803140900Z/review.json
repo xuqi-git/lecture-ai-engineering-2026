@@ -1,0 +1,222 @@
+{
+  "reviewer": "Codex; qualitative reading, not independent human grading",
+  "length_method": "Python len(answer): Unicode code points including whitespace and Markdown",
+  "criteria": {
+    "lora": "Frozen base weights, learned low-rank delta, resource savings",
+    "budget": "PV=210 and second-period consumption=110 with valid arithmetic",
+    "course": "Explicitly abstains without supplied course material; not counted as answering exact course facts"
+  },
+  "records": [
+    {
+      "sequence": 1,
+      "repeat": 1,
+      "model": "deepseek-v4-pro",
+      "question_id": "course",
+      "content_criterion_met": true,
+      "interpretation": "abstention, not factual answer",
+      "answer_chars": 113,
+      "char_limit": 250,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 2,
+      "repeat": 1,
+      "model": "deepseek-flash",
+      "question_id": "course",
+      "content_criterion_met": true,
+      "interpretation": "abstention, not factual answer",
+      "answer_chars": 99,
+      "char_limit": 250,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 3,
+      "repeat": 1,
+      "model": "deepseek-v4-pro",
+      "question_id": "lora",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 125,
+      "char_limit": 150,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 4,
+      "repeat": 1,
+      "model": "deepseek-v4-pro",
+      "question_id": "budget",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 216,
+      "char_limit": 200,
+      "length_within_limit": false
+    },
+    {
+      "sequence": 5,
+      "repeat": 1,
+      "model": "deepseek-flash",
+      "question_id": "budget",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 209,
+      "char_limit": 200,
+      "length_within_limit": false
+    },
+    {
+      "sequence": 6,
+      "repeat": 1,
+      "model": "deepseek-flash",
+      "question_id": "lora",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 123,
+      "char_limit": 150,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 7,
+      "repeat": 2,
+      "model": "deepseek-v4-pro",
+      "question_id": "lora",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 138,
+      "char_limit": 150,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 8,
+      "repeat": 2,
+      "model": "deepseek-flash",
+      "question_id": "course",
+      "content_criterion_met": true,
+      "interpretation": "abstention, not factual answer",
+      "answer_chars": 103,
+      "char_limit": 250,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 9,
+      "repeat": 2,
+      "model": "deepseek-flash",
+      "question_id": "budget",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 167,
+      "char_limit": 200,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 10,
+      "repeat": 2,
+      "model": "deepseek-v4-pro",
+      "question_id": "course",
+      "content_criterion_met": true,
+      "interpretation": "abstention, not factual answer",
+      "answer_chars": 128,
+      "char_limit": 250,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 11,
+      "repeat": 2,
+      "model": "deepseek-flash",
+      "question_id": "lora",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 114,
+      "char_limit": 150,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 12,
+      "repeat": 2,
+      "model": "deepseek-v4-pro",
+      "question_id": "budget",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 188,
+      "char_limit": 200,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 13,
+      "repeat": 3,
+      "model": "deepseek-flash",
+      "question_id": "lora",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 91,
+      "char_limit": 150,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 14,
+      "repeat": 3,
+      "model": "deepseek-v4-pro",
+      "question_id": "lora",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 87,
+      "char_limit": 150,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 15,
+      "repeat": 3,
+      "model": "deepseek-v4-pro",
+      "question_id": "budget",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 155,
+      "char_limit": 200,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 16,
+      "repeat": 3,
+      "model": "deepseek-flash",
+      "question_id": "budget",
+      "content_criterion_met": true,
+      "interpretation": "meets specified content criterion",
+      "answer_chars": 150,
+      "char_limit": 200,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 17,
+      "repeat": 3,
+      "model": "deepseek-v4-pro",
+      "question_id": "course",
+      "content_criterion_met": true,
+      "interpretation": "abstention, not factual answer",
+      "answer_chars": 120,
+      "char_limit": 250,
+      "length_within_limit": true
+    },
+    {
+      "sequence": 18,
+      "repeat": 3,
+      "model": "deepseek-flash",
+      "question_id": "course",
+      "content_criterion_met": true,
+      "interpretation": "abstention, not factual answer",
+      "answer_chars": 140,
+      "char_limit": 250,
+      "length_within_limit": true
+    }
+  ],
+  "summary": {
+    "lora_content": "6/6",
+    "budget_arithmetic": "6/6",
+    "course_abstention": "6/6",
+    "budget_length": "4/6",
+    "all_length": "16/18"
+  },
+  "limitations": [
+    "All prompts explicitly request short outputs.",
+    "The course prompt explicitly requests abstention when unconfirmed.",
+    "No blinded independent human evaluation.",
+    "No general model quality ranking from these 18 examples."
+  ]
+}

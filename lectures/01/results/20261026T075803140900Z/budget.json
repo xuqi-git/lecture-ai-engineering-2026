@@ -1,0 +1,18 @@
+{
+  "cap_usd": 0.25,
+  "reserved_upper_bound_usd": 0.10306008,
+  "reserved_calls": 18,
+  "rates": {
+    "deepseek-flash": [
+      0.3,
+      1.2
+    ],
+    "deepseek-v4-pro": [
+      1.32,
+      3.96
+    ]
+  },
+  "rates_basis": "peak/cache miss; checked 2026-10-26",
+  "rate_source": "https://api-docs.deepseek.com/quick_start/pricing/",
+  "note": "Conservative reservation using UTF-8 bytes+256 input allowance, not an invoice."
+}
