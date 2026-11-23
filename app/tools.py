@@ -98,6 +98,23 @@ def search_materials(query: str) -> str:
         return json.dumps({"error": api_error_message(e.code), "results": []}, ensure_ascii=False)
 
 
+def search_materials_with_neighbors(query: str) -> str:
+    """第1〜3回の本講義資料を検索し、ヒットしたページとその前後のページの本文・タイトル・ページ番号を返す。
+
+    queryに調べたい内容を指定する。role が hit のページが検索結果、neighbor が同じ資料の前後ページ。
+    """
+    from google.genai.errors import APIError
+    import sqlite3
+    from app.retrieval import search_with_neighbors
+
+    try:
+        return json.dumps({"results": search_with_neighbors(query)}, ensure_ascii=False)
+    except (ValueError, FileNotFoundError, sqlite3.Error) as e:
+        return json.dumps({"error": str(e), "results": []}, ensure_ascii=False)
+    except APIError as e:
+        return json.dumps({"error": api_error_message(e.code), "results": []}, ensure_ascii=False)
+
+
 def browse_tree(node_id: str | None = None) -> str:
     """目次とページの先頭文を返す。ページIDを指定すると全文を返す。
 
