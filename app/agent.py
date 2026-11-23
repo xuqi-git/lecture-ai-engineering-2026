@@ -45,6 +45,9 @@ INSTRUCTIONS = """\
 - 宿題の答えそのものは書かず、考え方のヒントで導く。
 """
 
+# 宿題（実装）: 取得処理だけを変えるため、指示文はツール名以外を INSTRUCTIONS と同じにする。
+NEIGHBOR_INSTRUCTIONS = INSTRUCTIONS.replace("search_materials", "search_materials_with_neighbors")
+
 TREE_INSTRUCTIONS = """\
 あなたはAIエンジニアリング講座（AIE2026）の学習支援エージェントです。
 - 対象は第1〜3回の本講義資料。まず browse_tree で講義一覧を見る。
@@ -182,6 +185,7 @@ def main() -> None:
     modes.add_argument("--graph", action="store_true", help="検索結果からグラフをたどり、候補ページを読んで答える")
     modes.add_argument("--tree", action="store_true", help="目次をたどり、必要なページを読んで答える")
     modes.add_argument("--full-context", action="store_true", help="検索せず、lectures.jsonの全資料を一度に渡す")
+    modes.add_argument("--neighbors", action="store_true", help="宿題（実装）: 検索結果に前後ページの本文も付けて答える")
     parser.add_argument("--list-tools", action="store_true", help="モデルに見えるツール一覧を表示して終了する（APIキー不要）")
     args = parser.parse_args()
 
@@ -191,6 +195,8 @@ def main() -> None:
         mode = target.override(instructions=TREE_INSTRUCTIONS, tools=[tools.browse_tree])
     elif args.graph:
         mode = target.override(instructions=GRAPH_INSTRUCTIONS, tools=[tools.search_graph])
+    elif args.neighbors:
+        mode = target.override(instructions=NEIGHBOR_INSTRUCTIONS, tools=[tools.search_materials_with_neighbors])
     with mode:
         if args.list_tools:
             if args.full_context:
